@@ -1,0 +1,404 @@
+<template>
+    <lightning-card footer="" title="">
+        <h1 slot="title" style="font-weight:normal;" class="slds-text-heading_medium">{welcomeText}</h1>
+        <div class="c-footer">
+            <a href="/lightning/app/c__Scheduler_Learning_App/n/Learning_Home">Return to Learning Home</a>
+        </div>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+
+                    <lightning-accordion allow-multiple-sections-open="true"
+                        active-section-name="['A','B','C','D','E','F','G']">
+
+                        <lightning-accordion-section name="A" label="Understanding what services are being offered">
+
+                            <template if:false={worktypegroupId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Topic"
+                                app-text="A work type group represents an appointment topic, such as home loan or investment. Create appointment topics that are relevant for your users."
+                                no-record={pass_true} 
+                                image="standard:work_type_group">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={worktypegroupId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Topic"
+                                app-text="A work type group represents an appointment topic, such as home loan or investment. Create appointment topics that are relevant for your users."
+                                image="standard:work_type_group" 
+                                app="standard__LightningScheduler"
+                                object-name="WorkTypeGroup" 
+                                object-id={worktypegroupId} 
+                                link-in-new-tab={pass_true}
+                                link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={appointmenttempId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Template"
+                                app-text="Work types are templates that are included in a work type group (appointment topic) and service territory (branch location), saving you time and making it easier to standardize your appointment scheduling. You can set parameters such as the default appointment duration, buffers before and after your appointment, and the appointment availability horizon."
+                                image="standard:work_type" 
+                                no-record={pass_true}>
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={appointmenttempId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Template"
+                                app-text="Work types are templates that are included in a work type group (appointment topic) and service territory (branch location), saving you time and making it easier to standardize your appointment scheduling. You can set parameters such as the default appointment duration, buffers before and after your appointment, and the appointment availability horizon."
+                                image="standard:work_type" 
+                                app="standard__LightningScheduler"
+                                object-name="WorkType" 
+                                object-id={appointmenttempId} 
+                                link-in-new-tab={pass_true}
+                                link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={grouptemptopicId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Grouping Templates under a Topic"
+                                app-text="Mapping each work type (appointment template) to a work type group (appointment topic)."
+                                image="standard:work_type" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={grouptemptopicId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Grouping Templates under a Topic"
+                                app-text="Mapping each work type (appointment template) to a work type group (appointment topic)."
+                                image="standard:work_type" 
+                                app="standard__LightningScheduler"
+                                object-name="WorkTypeGroupMember" 
+                                object-id={grouptemptopicId} 
+                                link-in-new-tab={pass_true}
+                                link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="B" label="Understand where these services being offered and at what times">
+
+                            <template if:false={serviceterritoryId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory"
+                                app-text="Service territories are used to organize the locations where Services will be provided."
+                                image="standard:service_territory" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={serviceterritoryId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory"
+                                app-text="Service territories are used to organize the locations where Services will be provided."
+                                image="standard:service_territory" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceTerritory"
+                                object-id={serviceterritoryId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+
+                            </template>
+                            <template if:false={serviceterritoryworktypeId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory Work Type"
+                                app-text="Mapping what work types (appointment template) will be serviced at a service territory (location)."
+                                image="standard:work_type" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={serviceterritoryworktypeId.length}>
+                            <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory Work Type"
+                                app-text="Mapping what work types (appointment template) will be serviced at a service territory (location)."
+                                image="standard:work_type" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceTerritoryWorkType"
+                                object-id={serviceterritoryworktypeId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={operatinghoursId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Operating Hours"
+                                app-text="Operating hours represent the time slots during which appointments can be scheduled."
+                                image="standard:operating_hours" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={operatinghoursId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Operating Hours"
+                                app-text="Operating hours represent the time slots during which appointments can be scheduled."
+                                image="standard:operating_hours" 
+                                app="standard__LightningScheduler" 
+                                object-name="OperatingHours"
+                                object-id={operatinghoursId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={timeslotId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Time Slots"
+                                app-text="Available timeslots for Operating Hours." 
+                                image="standard:timeslot"
+                                no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={timeslotId.length}>
+                                <c-in-app-landing-primary-feature-child heading="Time Slots"
+                                    app-text="Available timeslots for Operating Hours."
+                                    image="standard:timeslot" 
+                                    app="standard__LightningScheduler" 
+                                    object-name="TimeSlot"
+                                    object-id={timeslotId} 
+                                    link-in-new-tab={pass_true} 
+                                    link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={appointmenttopictimeslotId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Topic Time Slot"
+                                app-text="Preferences of providing a specific appointment during certain time slot."
+                                image="standard:topic" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={appointmenttopictimeslotId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Appointment Topic Time Slot"
+                                app-text="Preferences of providing a specific appointment during certain time slot."
+                                image="standard:topic" 
+                                app="standard__LightningScheduler" 
+                                object-name="AppointmentTopicTimeSlot"
+                                object-id={appointmenttopictimeslotId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section> 
+
+                        <lightning-accordion-section name="C" label="Understand how these services can be offered">
+
+                           
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Engagement Channel Types"
+                                inside-link-before-text="Engagement channels are mediums, such as Phone, Video, and In Person that service resources use to meet customers. Enable the Schedule Appointments Using Engagement Channels setting so that territory managers and service resources can use the engagement channels and the channel's junction objects.  Learn more "
+                                image="standard:feedback" 
+                                app="standard__LightningScheduler" 
+                                object-name="EngagementChannelType"
+                                filter-name="All_EngagementChannelTypes" 
+                                link-in-new-tab={pass_true} 
+                                inside-link-present={pass_true}
+                                inside-link="https://help.salesforce.com/s/articleView?id=sf.ls_engagement_channels.htm&type=5"
+                                inside-link-text="here"
+                                link-reference="standard__objectPage">
+                                </c-in-app-landing-primary-feature-child>
+                           
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="D" label="Understand what skills are required to execute these services">
+
+                        <c-in-app-landing-primary-feature-child 
+                            heading="Skill"
+                            app-text="Manage all the skills at your organization so that they can be mapped to service resources later."
+                            url="/lightning/setup/Skills/home" 
+                            image="standard:settings" 
+                            link-in-new-tab={pass_true} 
+                            link-reference="standard__webPage">
+                        </c-in-app-landing-primary-feature-child>
+
+                            <template if:false={skillreqId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="SkillRequirement"
+                                app-text="Mapping what skills and levels will be required to perform a certain work type."
+                                image="standard:skill_requirement" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={skillreqId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="SkillRequirement"
+                                app-text="Mapping what skills and levels will be required to perform a certain work type."
+                                image="standard:skill_requirement" 
+                                app="standard__LightningScheduler" 
+                                object-name="SkillRequirement"
+                                object-id={skillreqId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="E" label="Understand who is providing the above services">
+
+                            <template if:false={serviceresourceId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resources (User)"
+                                app-text="Service resources are individual users who can attend customer appointments and provide the services the Customer wants."
+                                image="standard:service_resource" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={serviceresourceId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resources (User)"
+                                app-text="Service resources are individual users who can attend customer appointments and provide the services the Customer wants."
+                                image="standard:service_resource" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceResource"
+                                object-id={serviceresourceId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={serviceresourceassetId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resources (Asset)"
+                                app-text="Assets can also be used to provide services - an example might be a conference room."
+                                image="standard:asset_object" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={serviceresourceassetId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resources (Asset)"
+                                app-text="Assets can also be used to provide services - an example might be a conference room."
+                                image="standard:asset_object" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceResource"
+                                object-id={serviceresourceassetId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={serviceresourceskillId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resource Skills"
+                                app-text="Skills are assigned to service resources to indicate their areas of expertise. Service resources are assigned appointments appropriate to their skills."
+                                image="standard:resource_skill" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={serviceresourceskillId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Resource Skills"
+                                app-text="Skills are assigned to service resources to indicate their areas of expertise. Service resources are assigned appointments appropriate to their skills."
+                                image="standard:resource_skill" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceResourceSkill"
+                                object-id={serviceresourceskillId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={servicereterritorymemberId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory Member"
+                                app-text="Assign service resources to service territories to ensure that appointment attendees are associated with the correct locations. Service resources assigned to a service territory are referred to as service territory members."
+                                image="standard:service_territory_member"
+                                no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={servicereterritorymemberId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Service Territory Member"
+                                app-text="Assign service resources to service territories to ensure that appointment attendees are associated with the correct locations. Service resources assigned to a service territory are referred to as service territory members."
+                                image="standard:service_territory_member" 
+                                app="standard__LightningScheduler" 
+                                object-name="ServiceTerritoryMember"
+                                object-id={servicereterritorymemberId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="F"
+                            label="Understand how service resources can manage their availability">
+
+                            <template if:false={resourceabsenceId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Resource Absences"
+                                app-text="Resource Absences lets a service resource define periods of time when a service resource is unavailable to work."
+                                image="standard:resource_absence" 
+                                no-record={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={resourceabsenceId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Resource Absences"
+                                app-text="Resource Absences lets a service resource define periods of time when a service resource is unavailable to work."
+                                image="standard:resource_absence" 
+                                app="standard__LightningScheduler" 
+                                object-name="ResourceAbsence"
+                                object-id={resourceabsenceId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                            </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                            <template if:false={shiftId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Shift"
+                                app-text="Shifts let your service resource create flexible availability and allow service resource to view the working coverage based on the service territory and work type groups."
+                                image="standard:shift" 
+                                no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={shiftId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Shift"
+                                app-text="Shifts let your service resource create flexible availability and allow service resource to view the working coverage based on the service territory and work type groups. Click on the 'Create Sample Shifts' button once, to create a few sample shift records in this trial org."
+                                image="standard:shift" 
+                                app="c__Scheduler_Learning_App" 
+                                object-name="Shift"
+                                filter-name={shiftId}
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__objectPage"
+                                button-enabled={pass_true}>
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="G" label="Understand how administrators can mass manage unavailability of a specific location">
+
+                            <template if:false={operatinghoursholidayId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Territory Holidays"
+                                app-text="Service territories can be non-operational due to state or regional holiday, or due to unforeseen circumstances. Territory managers can create holidays and link the holidays to the service territories to avoid bookings on days when the service territory is closed."
+                                image="standard:holiday_operating_hours"
+                                no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                            </template>
+                            <template if:true={operatinghoursholidayId.length}>
+                                <c-in-app-landing-primary-feature-child 
+                                heading="Territory Holidays"
+                                app-text="Service territories can be non-operational due to state or regional holiday, or due to unforeseen circumstances. Territory managers can create holidays and link the holidays to the service territories to avoid bookings on days when the service territory is closed."
+                                image="standard:holiday_operating_hours" 
+                                app="standard__LightningScheduler" 
+                                object-name="OperatingHoursHoliday"
+                                object-id={operatinghoursholidayId} 
+                                link-in-new-tab={pass_true} 
+                                link-reference="standard__recordPage">
+                                </c-in-app-landing-primary-feature-child>
+                            </template>
+
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

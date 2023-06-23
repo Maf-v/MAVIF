@@ -1,0 +1,112 @@
+<template>
+	<lightning-card footer="" title="">
+        <h1 slot="title" style="font-weight:normal;" class="slds-text-heading_medium">{welcomeText}</h1>
+         <div class="c-footer" >
+             <a href="/lightning/app/c__Scheduler_Learning_App/n/Learning_Home">Return to Learning Home</a>
+        </div>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    
+                    <template if:false={serviceappointmentId.length}>
+                        	<c-in-app-landing-primary-feature-child heading="Simple Outbound Appointment Scheduling Experience"
+                                                   app-text="Take a look at this sample service appointment record which is a simple appointment. You will notice it ONLY has 1 service resource assigned to it. Note - All specified options have been TURNED OFF on the Scheduling Policy when creating this sample record. Multi-resource, Concurrent and Anonymous options." 
+                                                   image="standard:service_appointment" 
+                                                   no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                    </template>
+                    <template if:true={serviceappointmentId.length}>
+                              <c-in-app-landing-primary-feature-child heading="Simple Outbound Appointment Scheduling Experience"
+                                                   app-text="Take a look at this sample service appointment record which is a simple appointment. You will notice it ONLY has 1 service resource assigned to it. Note - All specified options have been TURNED OFF on the Scheduling Policy when creating this sample record. Multi-resource, Concurrent and Anonymous options." 
+                                                   image="standard:service_appointment"
+                                                   app="standard__LightningScheduler"
+                                                   object-name="ServiceAppointment" 
+                                                   object-id={serviceappointmentId} 
+                                                   link-in-new-tab={pass_true}
+                                                   link-reference="standard__recordPage">
+                                                </c-in-app-landing-primary-feature-child>
+                                                </template>
+               
+                     <template if:false={serviceappointmentassetId.length}>
+                        	<c-in-app-landing-primary-feature-child heading="Multi-resource Scheduling Experience"
+                                                app-text="Take a look at this sample service appointment record which included scheduling multiple-resources. You will notice more than 1 service resource assigned on this service appointment. Note - Except for Multi-resource option, the other 2 options have been TURNED OFF on the Scheduling Policy when creating this sample record.  Concurrent and Anonymous options." 
+                                                image="standard:service_appointment"
+                                                no-record={pass_true}></c-in-app-landing-primary-feature-child>
+                                            </template>
+                    <template if:true={serviceappointmentassetId.length}>
+                    			<c-in-app-landing-primary-feature-child heading="Multi-resource Scheduling Experience"
+                                           app-text="Take a look at this sample service appointment record which included scheduling multiple-resources. You will notice more than 1 service resource assigned on this service appointment. Note - Except for Multi-resource option, the other 2 options have been TURNED OFF on the Scheduling Policy when creating this sample record.  Concurrent and Anonymous options." 
+                                           image="standard:service_appointment"
+                                           app="standard__LightningScheduler"
+                                           object-name="ServiceAppointment" 
+                                           object-id={serviceappointmentassetId} 
+                                           link-in-new-tab={pass_true}
+                                           link-reference="standard__recordPage">
+                                        </c-in-app-landing-primary-feature-child>
+                                           </template>
+                     
+                    <template if:false={serviceappointmentassetId.length}>
+                        	<c-in-app-landing-primary-feature-child heading="Asset Scheduling"
+                                           		app-text="Take a look at this sample service appointment record which includes multiple Service Resources of mixed types - a User and an Asset." 
+                                           		image="standard:service_appointment"
+                                                no-record={pass_true}>
+                                            </c-in-app-landing-primary-feature-child>
+                    </template>
+                    <template if:true={serviceappointmentassetId.length}>
+                    			<c-in-app-landing-primary-feature-child heading="Asset Scheduling"
+                                           app-text="Take a look at this sample service appointment record which includes multiple Service Resources of mixed types - a User and an Asset." 
+                                           image="standard:service_appointment"
+                                           app="standard__LightningScheduler"
+                                           object-name="ServiceAppointment" 
+                                           object-id={serviceappointmentassetId} 
+                                           link-in-new-tab={pass_true}
+                                           link-reference="standard__recordPage">
+                                        </c-in-app-landing-primary-feature-child>
+                    </template>
+
+                    <template if:false={serviceappointmentassetId.length}>
+                        	<c-in-app-landing-primary-feature-child heading="Asset and Resource Scheduling (Multi Resource)"
+                                                app-text="Take a look at this sample service appointment record which includes multiple Service Resources of mixed types - a User and an Asset." 
+                                                image="standard:service_appointment"
+                                                no-record={pass_true}>
+                                            </c-in-app-landing-primary-feature-child>
+                    </template>
+                    <template if:true={serviceappointmentassetId.length}>
+                            	<c-in-app-landing-primary-feature-child heading="Asset and Resource Scheduling (Multi Resource)"
+                                               app-text="Take a look at this sample service appointment record which includes multiple Service Resources of mixed types - a User and an Asset." 
+                                               image="standard:service_appointment"
+                                               app="standard__LightningScheduler"
+                                               object-name="ServiceAppointment" 
+                                               object-id={serviceappointmentassetId} 
+                                               link-in-new-tab={pass_true}
+                                               link-reference="standard__recordPage">
+                                            </c-in-app-landing-primary-feature-child>
+                    </template>
+                        
+                    <template if:false={accountId.length}>
+                        	<c-in-app-landing-primary-feature-child heading="Anonymous Scheduling" 
+                                           		app-text="Anonymous Scheduling is an experience where during an appointment booking experience you will NOT be able to see the Service Resources and the system anonymously picks up a resource based on the timeslot the user prefers. " 
+                                           		image="standard:service_appointment"
+                                                secondary-text-present="true"
+                                           		secondary-text="Schedule an Appointment using the 'Anonymous Booking' button after creating a new 'Account' and a new 'Service Territory'."
+                                                no-record={pass_true} >
+                                            </c-in-app-landing-primary-feature-child>
+                    </template>
+                    <template if:true={accountId.length}>
+                    			<c-in-app-landing-primary-feature-child heading="Anonymous Scheduling" 
+                                           app-text="Anonymous Scheduling is an experience where during an appointment booking experience you will NOT be able to see the Service Resources and the system anonymously picks up a resource based on the timeslot the user prefers. " 
+                                           image="standard:service_appointment"
+                                           secondary-text-present="true"
+                                           secondary-text="Schedule an Appointment using the 'Anonymous Booking' button from this account. On 'Select Service Territory' page enter 'San Francisco' when asked to enter an address."
+                                           app="standard__LightningScheduler"
+                                           object-name="Account" 
+                                           object-id={accountId} 
+                                           link-in-new-tab={pass_true}
+                                           link-reference="standard__recordPage">
+                                         </c-in-app-landing-primary-feature-child>
+                                        </template>    
+                                                       	
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

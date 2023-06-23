@@ -1,0 +1,27 @@
+<template>
+  <lightning-card footer="" title="">
+       <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+
+                    <p class="c-description"><b>{description}</b></p>  
+                                    
+                        <c-welcome-home-page-child heading="Understanding the Salesforce Scheduler Setup"
+                                              cloud-detail="Salesforce Scheduler is a product that simplifies personalized appointment booking experience for scheduling customer appointments—in person, or by phone or video—with the right person at the right place and time. In order to take advantage of the features it offers,one should undertand the components that are used for appointment Scheduling." 
+                                              app="standard__LightningScheduler"
+                                              page="Understand_Setup"
+                                              link-reference="standard__navItemPage">
+                        </c-welcome-home-page-child>
+
+                        <c-welcome-home-page-child heading="Explore different Outbound Scheduling experiences"
+                                            cloud-detail="As a user who has the ability to schedule customer appointments with service resources - we can explore multiple scheduling options." 
+                                            app="standard__LightningScheduler"
+                                            page="Explore_Different_Experiences"
+                                            link-reference="standard__navItemPage">
+                        </c-welcome-home-page-child>
+
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

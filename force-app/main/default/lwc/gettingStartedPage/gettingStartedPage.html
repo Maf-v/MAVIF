@@ -1,0 +1,31 @@
+<template>
+   <lightning-card footer="" title="">
+        <h1 slot="title" style="font-weight:normal;" class="slds-text-heading_medium">
+            <lightning-icon class="c-heading" icon-name="utility:salesforce1" alternative-text="Salesforce" title="Salesforce"></lightning-icon>
+            {appWelcomeText}
+        </h1>
+        <div class="c-container">
+            
+            <div class="custom-box">
+                <lightning-layout-item flexibility="auto" padding="around-medium">
+                    <div class="side-box">
+                    <p><b>Setup your Org domain</b></p>
+                    </div>
+                    <p>Showcase your company's brand with a customer-specific subdomain name in your Salesforce org URLs. With My Domain, you can include your company name in your URLs, for example, https://mycompany.my.salesforce.com. With these org-specific URLs, you can set up a custom login page, set a custom login policy, offer single sign-on, and allow users to log in with a social account. My Domain also allows you to work in multiple Salesforce orgs in the same browser at the same time.</p>
+                </lightning-layout-item>
+            </div>
+
+            <div class="custom-box">
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="side-box">
+                    <p><b>Guided Setup for Salesforce Scheduler</b></p>
+                    </div>
+                    <p>The Salesforce Scheduler Setup Assistant is your guide to selecting Salesforce Scheduler users and setting up features.
+                        Click <a href="/lightning/app/standard__LightningScheduler/n/standard-LightningSchedulerSetupAssistant">here </a>
+                        to Navigate to the Guided Setup.</p>                       
+                </lightning-layout-item>
+            </div>
+            
+        </div>
+    </lightning-card>
+</template>
