@@ -1,0 +1,10 @@
+<template>
+    <template for:each={stars} for:item="star">
+        <lightning-icon
+            key={star.index}
+            icon-name="utility:favorite"
+            variant={star.state}
+            size="small">
+        </lightning-icon>
+    </template>
+</template>
