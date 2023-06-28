@@ -1,23 +1,20 @@
 import { LightningElement, wire } from 'lwc';
-import getProfessionalsByType from '@salesforce/apex/ProfessionalsController.getProfessionalsByType';
+import getWorkTypesGroup from '@salesforce/apex/ProfessionalsController.getWorkTypesGroup';
 
 export default class ProfessionList extends LightningElement {
     activeSectionMessage = '';
-    listGastroenterologia;
+    listWorkTypesGroup;
 
     handleToggleSection(event) {
         this.activeSectionMessage =
             'Open section name:  ' + event.detail.openSections;
     }
 
-    @wire(getProfessionalsByType, { workTypeGroup: 'Gastroenterologia'})
-    wiredProfessionals(results) { 
-        if (results.data) {
-            this.listGastroenterologia = results.data; 
-            /* borrar */
-            console.log('Aca esta listGastroenterologia');
-            console.log(this.listGastroenterologia);
-        } else if (results.error) {
+    @wire(getWorkTypesGroup)
+    wiredWorkTypesGroup(results) {
+        if(results.data) {
+            this.listWorkTypesGroup = results.data;
+        } else if(results.error) {
             console.log(results.error);
         }
     }

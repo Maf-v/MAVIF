@@ -5,28 +5,10 @@
                          allow-multiple-sections-open
                          onsectiontoggle={handleToggleSection}
                          >
-        <lightning-accordion-section name="A" label="Gastroenterologia">
-            <template for:each={listGastroenterologia} for:item='professional'>
-                <lightning-layout-item key={professional.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
-                    <c-professional-card professional-data={professional} ></c-professional-card>
-                </lightning-layout-item>
-            </template>
-        </lightning-accordion-section>
-
-        <lightning-accordion-section name="B" label="Cardiologia">
-            <p>This is the content area for section B.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>The section height expands to fit your content.</p>
-        </lightning-accordion-section>
-
-        <lightning-accordion-section name="C" label="Dermatologia">
-            <p>This is the content area for section C.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>The section height expands to fit your content.</p>
-        </lightning-accordion-section>
+        <template for:each={listWorkTypesGroup} for:item='workTypeGroup'>
+            <lightning-accordion-section key={workTypeGroup.Id} name={workTypeGroup.Id} label={workTypeGroup.Name}>
+                <c-work-type-card work-type-group-name={workTypeGroup.Name}></c-work-type-card>
+            </lightning-accordion-section>
+        </template>
     </lightning-accordion>
 </template>

@@ -12,4 +12,10 @@ public with sharing class ProfessionalsController {
         return listReviews;
     }     
 
+    @AuraEnabled(cacheable=true)
+    public static List<WorkTypeGroup> getWorkTypesGroup() {
+        List<WorkTypeGroup> listWorkTypes = [SELECT Id, Name FROM WorkTypeGroup WITH SECURITY_ENFORCED];
+        return listWorkTypes;
+    }
+
 }
