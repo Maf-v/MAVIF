@@ -4,8 +4,8 @@ import getReviewsByProfessionalName from '@salesforce/apex/ProfessionalsControll
 export default class ProfessionalsList extends LightningElement {
     @api professionalData;
     listReviews;
-    averageRating;
-    cantReviews;
+    averageRating = 0;
+    cantReviews = 0;
     error;
 
     activeSectionMessage = '';

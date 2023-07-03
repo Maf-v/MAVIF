@@ -1,8 +1,8 @@
-public with sharing class ProfessionalsController {
+public without sharing class ProfessionalsController {
 
     @AuraEnabled(cacheable=true)
     public static List<ServiceResource> getProfessionalsByType(String workTypeGroup) {
-        List<ServiceResource> listProfessionals = [SELECT Id, Name, (SELECT Id, Label, WorkTypeGroup.Name FROM ShiftServiceResources) FROM ServiceResource WHERE Id IN (SELECT ServiceResourceId FROM Shift WHERE WorkTypeGroup.Name = :workTypeGroup)  WITH SECURITY_ENFORCED];
+        List<ServiceResource> listProfessionals = [SELECT Id, Name, Phone__c, (SELECT Id, Label, WorkTypeGroup.Name FROM ShiftServiceResources) FROM ServiceResource WHERE Id IN (SELECT ServiceResourceId FROM Shift WHERE WorkTypeGroup.Name = :workTypeGroup)  WITH SECURITY_ENFORCED];
         return listProfessionals;
     }
 
