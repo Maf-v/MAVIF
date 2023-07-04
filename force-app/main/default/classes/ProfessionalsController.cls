@@ -13,6 +13,13 @@ public without sharing class ProfessionalsController {
     }     
 
     @AuraEnabled(cacheable=true)
+    public static List<ServiceResource> getProfessionalsByName(String name) {
+        String inputName = '%' + name + '%';
+        List<ServiceResource> listProfessionals = [SELECT Id, Name, Phone__c FROM ServiceResource WHERE Name LIKE :inputName WITH SECURITY_ENFORCED];
+        return listProfessionals;
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<WorkTypeGroup> getWorkTypesGroup() {
         List<WorkTypeGroup> listWorkTypes = [SELECT Id, Name FROM WorkTypeGroup WITH SECURITY_ENFORCED];
         return listWorkTypes;
