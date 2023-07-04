@@ -32,7 +32,7 @@ export default class ProfessionalsList extends LightningElement {
             ratings.push(parseInt(review.Valoracion__c));
         }
         let sum = ratings.reduce((acum, current) => acum + current);
-        let average = sum / ratings.length;
+        let average = parseFloat(sum / ratings.length).toFixed(2);
         return average;
     }
 
