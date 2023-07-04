@@ -1,0 +1,19 @@
+<template>
+    <div onkeyup={handleKeyUp}>
+        <lightning-input
+        name="enter-search"
+        label="Introduzca el nombre del profesional"
+        type="search"
+        ></lightning-input>
+    </div>
+    <lightning-button variant="brand-outline" label="Limpiar búsqueda" onclick={handleClick} class="slds-float_right slds-m-top_xx-small"></lightning-button>
+    <template if:true={display}>
+        <div class="slds-m-top_xx-large">
+            <template for:each={listProfessionals} for:item='professional'>
+                <div key={professional.Id} class="slds-m-top_small">
+                    <c-professional-card professional-data={professional}></c-professional-card>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>
