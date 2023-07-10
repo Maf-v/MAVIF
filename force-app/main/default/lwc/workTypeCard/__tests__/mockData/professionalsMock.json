@@ -1,0 +1,20 @@
+[
+  {
+    "attributes": {
+      "type": "ServiceResource",
+      "url": "/services/data/v58.0/sobjects/ServiceResource/0Hn6e0000015IKbCAM"
+    },
+    "Id": "0Hn6e0000015IKbCAM",
+    "Name": "Henriette Fundell",
+    "Phone__c": "2836101369"
+  },
+  {
+    "attributes": {
+      "type": "ServiceResource",
+      "url": "/services/data/v58.0/sobjects/ServiceResource/0Hn6e0000015IKeCAM"
+    },
+    "Id": "0Hn6e0000015IKeCAM",
+    "Name": "Tyne Rolinson",
+    "Phone__c": "3588250191"
+  }
+]
