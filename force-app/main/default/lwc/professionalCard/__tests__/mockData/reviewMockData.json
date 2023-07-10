@@ -1,0 +1,24 @@
+[
+  {
+    "attributes": {
+      "type": "Review__c",
+      "url": "/services/data/v58.0/sobjects/Review__c/a016e00000saqIkAAI"
+    },
+    "Id": "a016e00000saqIkAAI",
+    "Valoracion__c": 4,
+    "Comentario__c": "Muy bueno",
+    "Service_Appointment__c": "08p6e0000011WROAA2",
+    "CreatedDate": "2023-06-28T00:15:51.000+0000"
+  },
+  {
+    "attributes": {
+      "type": "Review__c",
+      "url": "/services/data/v58.0/sobjects/Review__c/a016e00000saqISKLA"
+    },
+    "Id": "a016e00000saqISKLA",
+    "Valoracion__c": 2,
+    "Comentario__c": "Muy malo",
+    "Service_Appointment__c": "08p6e0000011WROAA3",
+    "CreatedDate": "2023-06-25T00:15:51.000+0000"
+  }
+]
