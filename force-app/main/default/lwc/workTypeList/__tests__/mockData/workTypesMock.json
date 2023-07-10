@@ -1,0 +1,42 @@
+[
+  {
+    "attributes": {
+      "type": "WorkTypeGroup",
+      "url": "/services/data/v58.0/sobjects/WorkTypeGroup/0VS6e000000kH4JGAU"
+    },
+    "Id": "0VS6e000000kH4JGAU",
+    "Name": "Hematologia"
+  },
+  {
+    "attributes": {
+      "type": "WorkTypeGroup",
+      "url": "/services/data/v58.0/sobjects/WorkTypeGroup/0VS6e000000kH4dGAE"
+    },
+    "Id": "0VS6e000000kH4dGAE",
+    "Name": "Endocrinología"
+  },
+  {
+    "attributes": {
+      "type": "WorkTypeGroup",
+      "url": "/services/data/v58.0/sobjects/WorkTypeGroup/0VS6e000000kH4OGAU"
+    },
+    "Id": "0VS6e000000kH4OGAU",
+    "Name": "Hemodinamia"
+  },
+  {
+    "attributes": {
+      "type": "WorkTypeGroup",
+      "url": "/services/data/v58.0/sobjects/WorkTypeGroup/0VS6e000000kH4YGAU"
+    },
+    "Id": "0VS6e000000kH4YGAU",
+    "Name": "Oncologia"
+  },
+  {
+    "attributes": {
+      "type": "WorkTypeGroup",
+      "url": "/services/data/v58.0/sobjects/WorkTypeGroup/0VS6e000000kH4PGAU"
+    },
+    "Id": "0VS6e000000kH4PGAU",
+    "Name": "Cardiologia"
+  }
+]
