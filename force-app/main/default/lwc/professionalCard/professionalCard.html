@@ -1,26 +1,37 @@
 <template>
-    <lightning-card  title={professionalData.Name}>
-        <p class="slds-p-horizontal_small">Telefono: {professionalData.Phone__c}</p>
+  <lightning-card title={professionalData.Name}>
+    <p class="slds-p-horizontal_small">Telefono: {professionalData.Phone__c}</p>
 
-        <lightning-accordion class="example-accordion"
-                            allow-multiple-sections-open
-                            onsectiontoggle={handleToggleSection}
-                            active-section-name="B">
-            <div class="slds-list_horizontal">
-                <div class="slds-text-heading_small slds-m-vertical_small slds-m-left_small inline">Valoracion general:  {averageRating}  </div>
-                <lightning-icon
-                    icon-name="utility:favorite"
-                    variant='warning'
-                    size="xx-small"
-                    class="slds-m-vertical_small slds-m-left_xx-small">
-                </lightning-icon>
-                <p class="slds-text-heading_small slds-m-vertical_small slds-m-top_xxx-small slds-m-left_small">({cantReviews} Opiniones)</p>
-            </div>
-            <lightning-accordion-section name="A" label="Reviews">
-                <template for:each={listReviews} for:item='review'>
-                    <c-review-card key={review.Id} review-data={review} ></c-review-card>
-                </template>
-            </lightning-accordion-section>
-        </lightning-accordion>
-    </lightning-card>
+    <lightning-accordion
+      class="example-accordion"
+      allow-multiple-sections-open
+      onsectiontoggle={handleToggleSection}
+      active-section-name="B"
+    >
+      <div class="slds-list_horizontal">
+        <div
+          class="slds-text-heading_small slds-m-vertical_small slds-m-left_small inline"
+        >
+          Valoracion general: {averageRating}
+        </div>
+        <lightning-icon
+          icon-name="utility:favorite"
+          variant="warning"
+          size="xx-small"
+          class="slds-m-vertical_small slds-m-left_xx-small"
+        >
+        </lightning-icon>
+        <p
+          class="slds-text-heading_small slds-m-vertical_small slds-m-top_xxx-small slds-m-left_small pQuantReviews"
+        >
+          ({cantReviews} Opiniones)
+        </p>
+      </div>
+      <lightning-accordion-section name="A" label="Reviews">
+        <template for:each={listReviews} for:item="review">
+          <c-review-card key={review.Id} review-data={review}></c-review-card>
+        </template>
+      </lightning-accordion-section>
+    </lightning-accordion>
+  </lightning-card>
 </template>
